@@ -1,0 +1,47 @@
+<aura:component controller="Accountdata" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:handler name="init" value="{!this}" Action="{!c.doInit}"/>   
+    <aura:attribute name="accountList" type="List"/>
+     <aura:attribute name="sObjAccount" type="Account"/>
+    <aura:attribute name="Name" type="String"/>
+    <aura:attribute name="Phone" type="String"/>
+    <aura:attribute name="Employees" type="Integer"/>
+    <aura:attribute name="AccountNumber" type="String"/>
+    <aura:attribute name="Website" type="String"/>
+    
+    <div class="slds-m-around_xx-large">
+        <div class="slds-m-left_x-large">
+            <lightning:card>
+                
+                <Lightning:select name="select1" label=" List of Account" >
+                    <option value="" >Choose one...</option>
+                    <aura:iteration items ="{!v.accountList}" var="ac">
+                        <option value="{!ac.Id}"  label="{!ac.Name}"></option>
+                        
+                    </aura:iteration>
+                </Lightning:select>
+                
+                
+                
+                <Lightning:input name="Name" type="String" required="true" label="Name" value="{!v.sObjAccount.Name}"/>   
+                
+                
+                <Lightning:input name="phone" type="String" label="phone" value="{!v.sObjAccount.Phone}"/>  
+                
+                
+                <Lightning:input name="Employees" type="Integer" label="Employees" value="{!v.sObjAccount.Employees}"/>   
+                
+                
+                <Lightning:input name="AccountNumber" type="String" label="Account Number" value="{!v.sObjAccount.AccountNumber}"/>   
+                
+                
+                <Lightning:input name="Website" type="String" label="Website" value="{!v.sObjAccount.Website}"/>   
+                
+                <Lightning:button variant="brand" label="Submit" title="Submit" onclick="{!c.submitData}"/>
+                
+                
+                
+            </lightning:card>
+        </div>
+    </div>
+</aura:component>

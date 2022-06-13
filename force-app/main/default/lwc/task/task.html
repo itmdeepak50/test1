@@ -1,0 +1,14 @@
+<template>
+    <form id="form">
+    <lightning-input type="text" label="First Name" value={Fname}  id="p" onchange={chek1} ></lightning-input>
+    <lightning-input type="text" label="Phone" value={Phone} ></lightning-input>
+    <lightning-input type="text" label="Email" value={Email} ></lightning-input>
+    <lightning-input type="text" label="Account Name" name="Accname" value={AcName} disabled="true" ></lightning-input>
+    <br>
+    <br>
+   
+    <lightning-button variant="brand" label="Save" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+</form>
+    
+
+</template>

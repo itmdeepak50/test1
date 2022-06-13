@@ -1,0 +1,64 @@
+<aura:component controller="ObjectData"  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" Action="{!c.doInit}"/>   
+    <aura:attribute name="objectList" type="List"/>
+     <aura:attribute name="Apiname" type="String"/>
+     <aura:attribute name="fieldname" type="String"/>
+    
+    <aura:attribute name="fieldList" type="List"/>
+    <aura:attribute name= "truthy" Type="Boolean" default="false"/>
+    <aura:attribute name= "truthy1" Type="Boolean" default="false"/>
+    
+    
+    
+    
+    
+    <Lightning:select name="select1" label=" List of Object Name" aura:id="select"  onchange="{!c.setName}">
+        <option value="" >Choose one...</option>
+        <aura:iteration items ="{!v.objectList}" var="ac">
+            <option value="{!ac}"  label="{!ac}"></option>
+            
+        </aura:iteration>
+    </Lightning:select>  
+    
+    
+    <aura:if isTrue="{!v.truthy}">
+        <Lightning:select name="select1"  aura:id="selectfield"  label=" List of Fields Name" onchange="{!c.getfield}" >
+            <option value="" >Choose one...</option>
+            <aura:iteration items ="{!v.fieldList}" var="ac">
+                <option value="{!ac}"  label="{!ac}"></option>
+                
+            </aura:iteration>
+        </Lightning:select> 
+        
+        
+    </aura:if> 
+     <aura:if isTrue="{!v.truthy1}">
+         
+         
+    <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+        <thead>
+            <tr class="slds-text-title--caps">
+                <th scope="col">
+                    <div class="slds-truncate" title="First Name">API NAME</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="First Name">TYPE</div>
+                </th>
+            </tr>
+        </thead>
+        <!--table body start, 
+        Iterate contact list as a <tr>
+        -->
+        <tbody>
+            <tr>
+                <th scope="row">
+                    <div class="slds-truncate" title="demo">{!v.fieldname}</div>
+                </th>
+                <th scope="row">
+                    <div class="slds-truncate" title="{!v.ApiName}">{!v.Apiname}</div>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+  </aura:if> 
+</aura:component>

@@ -1,0 +1,177 @@
+<aura:component    controller="SignupUser"  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:handler name="init" value="{!this}" Action="{!c.doInit}"/>
+    <aura:attribute name= "truthy1" Type="Boolean" default="false"/>
+    <aura:attribute name= "truthy2" Type="Boolean" default="false"/>
+    <aura:attribute name= "truthy3" Type="Boolean" default="false"/>
+    <aura:attribute name="sObjuser" type="User__c" default="{Name: '',Name__c:'',Password__c:'',Gender__c:'',Date__c:'',
+                                                            AddressLine1__c:'',AddressLine2__c:'',zipcode__c:'',country__c:'',ContactEmail__c:'',
+                                                            Contactnumber__c:'',Scquestion__c:'',Scanswer__c:''
+                                                            
+                                                            
+                                                            
+                                                            }" />
+    
+    
+    
+    <!-- global User__c Object-->
+    
+    
+    
+    
+    <!-- first page attribute  -->
+    <aura:attribute name="options" type="List" default="[
+                                                        {'label': 'MALE', 'value': 'MALE'},
+                                                        {'label': 'FEMALE', 'value': 'FEMALE'},
+                                                        {'label': 'OTHER', 'value': 'OTHER'},
+                                                        ]"/>
+    <aura:attribute name="Name" type="String"/>
+    <aura:attribute name="nameError" type="String"/>
+    <aura:attribute name="usernameError" type="String"/>
+    <aura:attribute name="passwordError" type="String"/>
+    <aura:attribute name="genderError" type="String"/>
+    <aura:attribute name="dateofbirthError" type="String"/>
+    
+    <aura:attribute name="showpassword" type="String"/>
+    
+    
+    
+    
+    <!-- second page attribute  -->
+    <aura:attribute name="country" type="List" default="[
+                                                        {'label': 'India', 'value': 'India'},
+                                                        {'label': 'Usa', 'value': 'Usa'},
+                                                        {'label': 'Austrlia', 'value': 'Austrlia'},
+                                                        ]"/>
+      <aura:attribute name="address1Error" type="String"/>
+      <aura:attribute name="address2Error" type="String"/>
+      <aura:attribute name="zipcodeError" type="String"/>
+      <aura:attribute name="countryError" type="String"/>
+    
+    
+    
+    
+    
+    <!-- third page attribute  -->
+    <aura:attribute name="question" type="List" default="[
+                                                         {'label': 'Home town name', 'value': 'Home town name'},
+                                                         {'label': 'Pet Name', 'value': 'Pet Name'},
+                                                         {'label': 'First School Name', 'value': 'First School Name'},
+                                                         ]"/>
+      <aura:attribute name="conemailError" type="String"/>
+      <aura:attribute name="conNumberError" type="String"/>
+      <aura:attribute name="seqError" type="String"/>
+      <aura:attribute name="answerError" type="String"/>
+    
+   
+    
+    
+    
+    
+    <div class="signcss">
+        <lightning:card>
+            
+            
+            <div class="slds-p-around_large">
+                <aura:if isTrue="{!v.truthy1}">  
+                    <lightning:card >
+                        <lightning:progressIndicator currentStep="1" type="path" variant="base">
+                            <lightning:progressStep label="Step 1" value="1"/>
+                            <lightning:progressStep label="Step 2" value="2"/>
+                            <lightning:progressStep label="Step 3" value="3"/>
+                            
+                        </lightning:progressIndicator>
+                        
+                        <div style="font-size: xx-large; "><h1><center><P>Fill out details 1</P></center></h1></div>
+                       
+                        <Lightning:input name="Name"  aura:id="name" type="String" 
+                      required="true" label="Name" value="{!v.sObjuser.Name__c}"/> 
+                        <span style="color:Red" >{!v.nameError}</span>
+                        
+                        
+                        
+                        <Lightning:input name="username" type="String" required="true" label="Username" value="{!v.sObjuser.Name}"/> 
+                        <span style="color:Red"  >{!v.usernameError}</span>
+                        <Lightning:input name="password" aura:id="password_field" type="{!v.showpassword ? 'text':'password'}" required="true" label="Password" value="{!v.sObjuser.Password__c}"/> 
+                        <span  style="color:Red"  >{!v.passwordError}</span>
+                        <lightning:buttonIcon class="slds-button slds-input__icon slds-text-color--default" 
+                                              iconName="{!v.showpassword ? 'utility:hide':'utility:preview'}" 
+                                              alternativeText="{!v.coborrowerSSNCB ? 'Hide':'Show'}" 
+                                              onclick="{!c.togglePassword}"/>
+                        <lightning:combobox name="Gender__c" label="Gender" required="true" aura:id="gender"   value="Gender__c" placeholder="Select Progress" options="{!v.options}" onchange="{!c.handleChange}" />
+                        <span style="color:Red">{!v.genderError}</span>
+                        <Lightning:input name="dateofbirth" type="Date" required="true"   label="Date Of Birth" value="{!v.sObjuser.Date__c}"/> 
+                        <span  style="color:Red"   >{!v.dateofbirthError}</span>
+                        <div style=" padding-top:2%">
+                        <Lightning:button variant="brand"  aura:id="button1"  label="Next" title="next" onclick="{!c.Page2}"/>
+                        </div>
+                    </lightning:card>
+                    
+                    
+                    
+                    
+                </aura:if> 
+                <aura:if isTrue="{!v.truthy2}"> 
+                    <lightning:card>
+                        <lightning:progressIndicator currentStep="2" type="path" variant="base">
+                            <lightning:progressStep label="Step 1" value="1"/>
+                            <lightning:progressStep label="Step 2" value="2"/>
+                            <lightning:progressStep label="Step 3" value="3"/>
+                            
+                        </lightning:progressIndicator>
+                        <div style="font-size: xx-large; "><h1><center><P>Fill out details 2</P></center></h1></div>
+                        <Lightning:input name="AddressLine1" type="String" required="true" label="Address Line 1" value="{!v.sObjuser.AddressLine1__c}"/> 
+                         <span style="color:Red"  >{!v.address1Error}</span>
+                        <Lightning:input name="AddressLine2" type="String" required="true" label="Address Line 2" value="{!v.sObjuser.AddressLine2__c}"/> 
+                         <span style="color:Red"  >{!v.address2Error}</span>
+                        <Lightning:input name="zipcode" type="String" required="true" label="zip code" value="{!v.sObjuser.zipcode__c}"/> 
+                         <span style="color:Red"  >{!v.zipcodeError}</span>
+                        <lightning:combobox name="Country" label="Country" required="true" aura:id="country" value="country__c" placeholder="Select Progress" options="{! v.country }" onchange="{!c.handleChange1}"/>
+                         <span style="color:Red"  >{!v.countryError}</span>
+                         <div style=" padding-top:2%">
+                        <Lightning:button variant="brand" label="Priveous" title="next" onclick="{!c.doInit}"/>
+                        <Lightning:button variant="brand" label="Next" title="next" onclick="{!c.Page3}"/>
+                        </div>
+                        
+                    </lightning:card>
+                </aura:if>
+                
+                
+                
+                
+                
+                <aura:if isTrue="{!v.truthy3}"> 
+                    <lightning:card>
+                        <lightning:progressIndicator currentStep="3" type="path" variant="base">
+                            <lightning:progressStep label="Step 1" value="1"/>
+                            <lightning:progressStep label="Step 2" value="2"/>
+                            <lightning:progressStep label="Step 3" value="3"/>
+                            
+                        </lightning:progressIndicator>
+                        <div style="font-size: xx-large; "><h1><center><P>Fill out details 3</P></center></h1></div>
+                        
+                        <Lightning:input name="ContactEmail" type="String" required="true" label="Contact Email" value="{!v.sObjuser.ContactEmail__c}"/>
+                        <span style="color:Red"  >{!v.conemailError}</span>
+                        <Lightning:input name="ContactNumber" type="String" required="true" label="Contact Number" value="{!v.sObjuser.Contactnumber__c}"/> 
+                        <span style="color:Red"  >{!v.conNumberError}</span>
+                        <lightning:combobox name="SecuirtyQuestion" label="Secuirty Question"  aura:id="scquestion"     required="true" value="Scquestion__c" placeholder="Select Progress" options="{!v.question }" onchange="{!c.handleChange2}" />
+                        <span style="color:Red"  >{!v.seqError}</span>
+                        <Lightning:input name="Scanswer" type="String" required="true" label="Answer" value="{!v.sObjuser.Scanswer__c}"/> 
+                        <span style="color:Red"  >{!v.answerError}</span>
+                         <div style=" padding-top:2%">
+                        <Lightning:button variant="brand"   aura:id="button4"    label="Priveous" title="next" onclick="{!c.Page2}"/>
+                        <Lightning:button variant="brand" label="submit" title="next" onclick="{!c.submit}"/>
+                        </div>
+                        
+                    </lightning:card>
+                </aura:if> 
+               
+            </div>
+        </lightning:card>
+    </div>
+    
+    
+    
+    
+    
+</aura:component>

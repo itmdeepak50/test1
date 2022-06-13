@@ -1,0 +1,476 @@
+<apex:page renderAs="pdf" standardStylesheets="false" applyBodyTag="false" showHeader="false" sidebar="false" applyHtmlTag="false">
+    
+    <head>
+        <style type="text/css" media ="print" >
+           
+            @page{
+                padding-top:100px;
+            	@top-left{
+            content:element(headerleft);
+            }
+            
+            @top-right{
+            content:element(headerright);
+            }
+            }
+            
+            .headerright{
+             position: running(headerright);
+            text-align:right;
+            }
+             .headerleft{
+             position: running(headerleft);
+            }
+            .content{
+           
+            }
+            
+           
+            .strip{
+            height :30px;
+            width :120%;
+            background-color: #b8b2b2;
+            margin-top :3%;
+            
+            }
+            .inner1{
+             float:left;
+             margin-left:580px;
+            }
+            .inner{
+            float:left;
+            }
+            table{
+            width :90%;
+            }
+            .tdd{
+            font-weight: bold;                   
+            }
+            table,tr,td{
+            padding-top: 0px;
+            padding-bottom: 0px;
+            
+            }
+            tablecss{
+            padding : 100%;
+            }
+            td{
+            height : 5px;
+            }
+            .flex-container{
+            width: 100%;
+            height :180px;
+            padding :5px 50px 30px 0px;
+            
+            }
+            .inners{
+            width: 70%;
+            float: left;
+            }
+            .innerr{
+            padding:4px 4px 4px 0px;
+            font-size:12.7px;
+            }
+            .innerr_c{
+            width:30%;
+            
+            }
+            
+            .container{
+            font-size:13.5px;
+            padding: 15px 0px 15px 0px;
+            }
+            
+            .left{
+            width:60%;
+            float:left;
+            }
+            
+            .right{
+            width:30%;
+            height:auto;
+            margin-left:20px;
+            float:left;
+            }p{
+            font-size:13.5px;
+            }
+            .loadbar{
+            padding-right:100px;
+            padding-top:100px;
+            text-align=center;
+            }
+            .belowform{
+            width:100%;
+            float:left;
+            }
+            .belowinnerleft{
+           width:30%;
+            height:auto;
+            margin-left:20px;
+            float:left;
+            }
+            .belowinnerright{
+            width:60%;
+            height:auto;
+            margin-left:20px;
+            float:left;
+            margin-top:25px;
+            }
+            .hrtag{
+             width:100%;
+            float:left;
+            }
+            .hrtagleft{
+             width:45%;
+            height:auto;
+            margin-left:20px;
+            float:left;
+            }
+            .hrtagright{
+             width:45%;
+            height:auto;
+            margin-left:20px;
+            float:left;
+            
+            }
+            
+        </style>
+    </head>
+    <div class="headerleft">
+        <img src="{!$Resource.CPWLOGO}"/>
+    </div>
+    <div  class="headerright">  
+    3D Risk Tolrense Questionnaire<br/>Prepared For Andrew Miller<br/>Prepared by Rupali Dixit<br/> Taken Febereuary 24,2022
+        </div>
+    <body>
+        
+    
+    <div class="content">
+        
+    <div class="strip" >
+        <div class="inner">
+            Risk Capacity
+        </div>
+        <div class="inner1">
+            63
+        </div>
+    </div>
+    
+    
+    <p>Risk tolerance is your comfort with the volatility that accompanies taking financial risk. 
+        <br/>The relationship between risk and reward is strong. Risk tolerance measures how much variability you are able to endure in the short-term
+        <br/>for a chance at higher longer-term returns.
+    </p> 
+    
+    
+    <div class="flex-container">
+        <div class="container">
+            <div class="left">
+                <h class="tdd">Which of the following best describes your primary objective?</h>
+            </div>
+            <div class="right">
+                Maintenance
+            </div>
+        </div>
+        <div class="container">
+            <div class="left">
+                <h class="tdd">Approximately how many years do you expect to continue to invest your assets
+                    in the stock market?
+                </h>
+            </div>
+            <div class="right">
+                Regularly
+            </div>
+        </div>
+        <div class="container">
+            <div class="left">
+                <h class="tdd">My current and future income (salary, pension, etc...) is:</h>
+            </div>
+            <div class="right">
+                Eleven to Fifteen
+            </div>
+        </div>
+        <div class="container">
+            <div class="left">
+                <h class="tdd">How able are you to handle financial emergencies with assets outside of your
+                    investment account(s)?</h>
+            </div>
+            <div class="right">
+                Somewhat able
+                
+            </div>
+        </div>
+        <div class="container">
+            <div class="left">
+                <h class="tdd">Once I begin to make withdrawals from my investment account, I plan to spend
+                    it over the course of:</h>
+            </div>
+            <div class="right">
+                15 to 24 years
+            </div>
+        </div>
+        <div class="container">
+            <div class="left">
+                <h class="tdd">My investment knowledge is best described as:</h>
+            </div>
+            <div class="right">
+                Above average
+            </div>
+        </div>
+        <div class="container">
+            <div class="left">
+                <h class="tdd">How often will you be contributing to this account?</h>
+            </div>
+            <div class="right">
+                Regularly            </div>
+        </div>
+        
+        
+    </div>
+    
+    <div class="strip" >
+        <div class="inner">
+            Risk Toleranse
+        </div>
+        <div class="inner1">
+            63
+        </div>
+    </div>
+    
+    <p>Risk capacity is your ability to take risk based on your timeline, goals, and level of wealth.<br/>Capacity is a measure of risk-taking ability. All else being equal, someone with more time, greater savings, stable sources of income, and<br/>
+        reasonable goals will have an increased ability to take risk. </p> 
+    
+    <div class="container">
+        <div class="left">
+            <h class="tdd">What amount are you able to invest?
+            </h>
+        </div>
+        <div class="right">
+            $250,000
+        </div>
+    </div>
+    <div class="container">
+        <div class="left">
+            <h class="tdd">What percent of your investment would you be willing to risk over the next 12
+                months?
+            </h>
+        </div>
+        <div class="right">
+            25% / 100%
+        </div>
+    </div>
+    <div class="container">
+        <div class="left">
+            <h class="tdd">Which risk and return profile is most comfortable to you?
+            </h>
+        </div>
+        <div class="right">
+            -22% / 20%
+        </div>
+    </div>
+    <div class="strip" >
+        <div class="inner">
+            Risk Toleranse
+        </div>
+        <div class="inner1">
+            63
+        </div>
+    </div>
+    <p>Risk capacity is your ability to take risk based on your timeline, goals, and level of wealth.<br/>Capacity is a measure of risk-taking ability. All else being equal, someone with more time, greater savings, stable sources of income, and<br/>
+        reasonable goals will have an increased ability to take risk. </p> 
+    <div class="container">
+        <div class="left">
+            <h class="tdd">I am easily stressed out.
+            </h>
+        </div>
+        <div class="right">
+            True
+        </div>
+    </div>
+    <div class="container">
+        <div class="left">
+            <h class="tdd">I rarely worry
+            </h>
+        </div>
+        <div class="right">
+           Somewhat true
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="left">
+            <h class="tdd">I remain calm under pressure.
+
+            </h>
+        </div>
+        <div class="right">
+            Somewhat true
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="left">
+            <h class="tdd">I am not easily disturbed by events.
+
+            </h>
+        </div>
+        <div class="right">
+            Somewhat true
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="left">
+            <h class="tdd">I do not worry about things that are out of my control.
+
+            </h>
+        </div>
+        <div class="right">
+            Somewhat true
+
+        </div>
+    </div>
+     <div class="container">
+        <div class="left">
+            <h class="tdd">I am easily bothered.
+
+
+            </h>
+        </div>
+        <div class="right">
+            True
+        </div>
+    </div>
+     <div class="container">
+        <div class="left">
+            <h class="tdd">I am relaxed most of the time.
+            </h>
+        </div>
+        <div class="right">
+            Somewhat true
+
+        </div>
+    </div>
+     <div class="container">
+        <div class="left">
+            <h class="tdd">I keep my emotions under control.
+            </h>
+        </div>
+        <div class="right">
+          Somewhat true
+        </div>
+    </div>
+        
+        
+        
+      
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+           <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+            <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+        <br/>
+         <br/>
+         <br/>
+       
+       
+
+        
+        <div class="container">
+        <div class="left">
+            <h class="tdd">Client Acknowledgement
+            </h>
+        </div>
+        
+    </div>
+        <hr/>
+         <p>I understand that this questionnaire is only a guide to building an overall financial solution, and I recognize that there are other factors to 
+        <br/>consider when making portfolio decisions. I understand that my responses on this questionnaire indicate that my risk tolerance is: Growth +
+        <br/>Income (53.00% risk tolerance)
+    </p> 
+        
+      <img src="{!$Resource.chekbox}"/> <p>
+        I disagree with this assessment, and I believe my risk tolerance is ________ %.
+        </p>
+        <div class="belowform">
+            <div class="belowinnerleft">
+            <p>
+                My reasoning for disagreeing with this assessment is:</p>
+            </div><div class="belowinnerright">
+            <hr/>
+            </div>
+        </div>
+        
+        <div class="hrtag">
+            <div class="hrtagleft">
+                <hr/>
+            </div>
+            
+            <div class="hrtagleft">
+                <p>
+                    Client Signature
+                </p> 
+            </div>
+            <div class= "hrtagright">
+                <p>
+                    Client Signature
+                </p> 
+            </div>
+            
+            
+            <div class="hrtagright">
+            <hr/>
+            </div>
+            
+            
+      
+        </div>
+           <div class="hrtag">
+            <div class="hrtagleft">
+                <hr/>
+            </div><div class="hrtagright">
+            <hr/>
+            </div>
+        </div>
+        
+        
+      </div>
+        </body>
+
+    
+    
+</apex:page>

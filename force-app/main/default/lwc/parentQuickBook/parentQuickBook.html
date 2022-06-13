@@ -1,0 +1,36 @@
+<template>
+!!!!!! value are {result}
+<lightning-progress-indicator type="path"  current-step={step} variant="base">
+    <lightning-progress-step label="Registration" value="1"></lightning-progress-step>
+    <lightning-progress-step label="Final Authnticate" value="2"></lightning-progress-step>
+</lightning-progress-indicator>
+
+
+
+<template if:true={registerPage}>
+<lightning-card >
+    
+    <Lightning-input  type='Text' label='Name' value={userName}  onchange={setuserName}></Lightning-input>
+    <Lightning-input  type='Text' label='client Id' value={clientId}  onchange={setClientId}></Lightning-input>
+    <Lightning-input  type='Text' label='client_Secret' value={clientSecret}  onchange={setclientSecret}></Lightning-input>
+    <Lightning-input  type='Text' label='Reelam Id' value={reelamId}  onchange={setreeLamId}></Lightning-input>
+    <Lightning-input  type='Text' label='Passcode' value={passcode}  onchange={setpassCode}></Lightning-input>
+
+    
+    <lightning-button variant="brand" label="Getverified" title="Primary action" onclick={saveDetail} class="slds-m-left_x-small"></lightning-button>
+    <lightning-button variant="brand" label="FinalResgister" title="Primary action" onclick={SetData} class="slds-m-left_x-small"></lightning-button>
+
+    </lightning-card>
+
+</template>
+
+
+
+
+<template  if:true={Authnticatebutton}>
+
+    <lightning-button variant="brand" label="FinalAuthnticate" title="Primary action" onclick={navigateToWebPage} class="slds-m-left_x-small"></lightning-button>
+</template>
+
+
+</template>

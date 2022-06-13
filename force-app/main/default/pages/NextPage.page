@@ -1,0 +1,6 @@
+<apex:page controller="SecondPage" >
+     
+    Value passed in previous page is {!strText}
+    
+    
+</apex:page>

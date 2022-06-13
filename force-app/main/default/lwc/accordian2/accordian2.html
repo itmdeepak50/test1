@@ -1,0 +1,35 @@
+<template>
+    <Lightning-input  type='Text' label='Contact' value={passcode} onchange={set}></Lightning-input></br>
+    <button class="slds-button slds-button_brand"   onclick={submitDetails}   title="OK">SEARCH</button>
+  
+    <lightning-accordion class="example-accordion" active-section-name={activeSections2}
+    onsectiontoggle={handleToggleSection2}
+    allow-multiple-sections-open >
+   <!-- <lightning-accordion-section name="B" label="Account">--> 
+    <template if:true={accd}>
+   
+    <template for:each={accd} for:item="itr">
+    <lightning-accordion-section  key={itr.id}  name={itr.name} label={itr.name}>
+     {activeSections2}
+      <lightning-accordion class="example-accordion" active-section-name={activeSections3}
+      onsectiontoggle={handleToggleSection3}
+      allow-multiple-sections-open>
+
+      <template for:each={itr.conn} for:item="itrr">
+        <lightning-accordion-section  key={itrr.id}  name={itrr.Name} label={itrr.Name}>
+          {itrr.Name}
+          </lightning-accordion-section>
+     </template>
+     
+      </lightning-accordion>
+         
+
+      </lightning-accordion-section>
+
+    </template>
+    </template>
+    <!--</lightning-accordion-section>-->
+  </lightning-accordion>   
+
+
+</template>

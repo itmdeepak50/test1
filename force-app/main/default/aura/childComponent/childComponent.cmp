@@ -1,0 +1,11 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:registerEvent name="eventExample" type="c:ComponentEventExample"/>
+    <aura:attribute name='ParentValue' type="String"/>
+    <aura:attribute name='IntegereValue' type="Integer"/>
+    <Lightning:card >
+		{!v.ParentValue}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!v.IntegereValue}
+       I am in my child component
+        <lightning:button name="fireEvent" label="FireEvent"  variant="Brand" onclick="{!c.passValueToParentComponent}"/>
+    </Lightning:card>
+       
+</aura:component>

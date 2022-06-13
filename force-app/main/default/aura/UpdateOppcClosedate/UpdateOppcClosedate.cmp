@@ -1,0 +1,31 @@
+<aura:component controller="UpdateOppCloseDate"  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:handler name="init" value="{!this}" Action="{!c.doInit}"/>   
+    
+    <aura:attribute name="oppList" type="List"/>
+    <aura:attribute name= "truthy" Type="Boolean" default="false"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="Closedate" type="Date"/>
+    
+    
+    <Lightning:select name="select1" label=" List of Opportunity"  aura:id = "acid"   onchange="{!c.updateDate}" >
+        <option value="" >Choose one...</option>
+        <aura:iteration items ="{!v.oppList}" var="ac">
+            <option value="{!ac.Id}"  label="{!ac.Name}"></option>
+            
+        </aura:iteration>
+    </Lightning:select>
+    <aura:if isTrue="{!v.truthy}">
+        <lightning:datatable keyField="id" 
+                             data="{!v.data}" 
+                             columns="{!v.columns}"/>
+        
+        
+        <Lightning:input name="CloseDate" type="Date" label="Close Date" value="{!v.Closedate}"/>
+        
+        <Lightning:button variant="brand" label="Update" title="Submit" onclick="{!c.submitData}"/>        
+    </aura:if>    
+    
+    
+</aura:component>

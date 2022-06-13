@@ -1,0 +1,28 @@
+<aura:component controller="aura8ConlookwithAcc"  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" Action="{!c.doInit}"/>   
+    <aura:attribute name="accountList" type="List"/>
+    <aura:attribute name="LastName" type="String"/>
+   
+    
+    
+    <div  class="slds-p-around_xx-large">
+        <Lightning:card>
+            <div class="slds-p-around_xx-large">
+                <Lightning:select name="select1" label=" List of Account"  aura:id="select"  >
+                    <option value="" >Choose Account...</option>
+                    <aura:iteration items ="{!v.accountList}" var="ac">
+                        <option value="{!ac.Id}"  label="{!ac.Name}"></option>
+                        
+                    </aura:iteration>
+                </Lightning:select>
+                
+                
+                <Lightning:input name="LastName" type="String" label="Last Name" value="{!v.LastName}"   placeholder="Enter Last Name" required="true" />
+                <div class="slds-m-top_medium">
+                <Lightning:button variant="brand" label="Submit" title="Submit" onclick="{!c.submitData}"/>
+                </div>
+            </div>
+        </Lightning:card>
+    </div>
+    
+</aura:component>

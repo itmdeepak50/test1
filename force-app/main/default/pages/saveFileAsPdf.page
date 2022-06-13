@@ -1,0 +1,9 @@
+<apex:page showHeader="false" sidebar="False" controller="genratePdfandSave" renderAs="pdf">
+<apex:form >
+ Name <apex:inputText label="Name" value="{!inputText1}" />
+ Phone <apex:inputText label="Phone" value="{!inputText2}"/>
+ country <apex:inputText label="country"  value="{!inputText3}"/>
+ city <apex:inputText label="city" value="{!inputText4}"/>
+<apex:commandButton value="save" action="{!saveTextValue}"/>
+</apex:form>
+</apex:page>

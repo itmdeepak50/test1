@@ -1,0 +1,14 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,lightning:isUrlAddressable,flexipage:availableForAllPageTypes" 
+                access="global"
+                controller = "oAuthConnection">
+    <aura:attribute name="accessToken" type="String" />
+    <aura:handler name='init' value='{!this}' action='{!c.doInit}' />
+    <div class = 'slds-grid slds-wrap slds-align_absolute-center' style="background-color:white;height:15rem;width:25rem;">
+        <div class = 'slds-col slds-size_12-of-12 slds-align_absolute-center'>
+            <lightning:button variant="brand" label="Connect To MailChimp" title="Base action" onclick="{! c.handleClick }"/><br></br>
+        </div>
+        <div class = 'slds-align_absolute-center'>
+            Access Token is : {!v.accessToken}
+        </div>
+    </div>
+</aura:component>

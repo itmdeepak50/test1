@@ -1,0 +1,77 @@
+<aura:component controller="aura7UserSign" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" Action="{!c.doInit}"/>   
+    
+    
+    <aura:attribute name="truthy1" Type="Boolean" default="false"/>
+    <aura:attribute name="truthy2" Type="Boolean" default="false"/>
+    <aura:attribute name="truthy3" Type="Boolean" default="false"/>
+    
+    
+    <aura:attribute name="username" type="String"/>
+    <aura:attribute name="password" type="String"/>
+    
+     <aura:attribute name="usernameError" type="String"/>
+     <aura:attribute name="passwordError" type="String"/>
+    
+    
+    
+    <div class="pcard">
+    <Lightning:card >
+        <aura:if isTrue="{!v.truthy1}">
+            
+            <div class="slds-p-around_xx-large">
+                <div class="slds-m-around_medium">
+                    <Lightning:card>
+                        <div class="slds-p-around_x-large">
+                            <div class="slds-align_absolute-center" style="height:5rem">   
+                                <h1><p style="font-size: xxx-large;">Sign Page</p></h1> 
+                            </div>
+                            <Lightning:input name="username" type="String" label="User Name" value="{!v.username}"/> 
+                            <span  style="color:Red"   >{!v.usernameError}</span>
+                            <Lightning:input name="password" type="Password" label="Password" value="{!v.password}"/>
+                            <span  style="color:Red"   >{!v.passwordError}</span>
+                             <div class="slds-m-top_medium">
+                            <button class="slds-button" onclick="{!c.forgetPassword}">Forget Password</button>
+                            </div>
+                            <div class="slds-align_absolute-center" style="height:5rem">
+                                <div class="slds-m-top_medium">
+                                    <Lightning:button variant="brand" label="Sign in" title="Sign in" onclick="{!c.signIn}"/>
+                                    <Lightning:button variant="brand" label="Sign up" title="Sign in" onclick="{!c.signup}"/>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </Lightning:card>
+                </div>
+                
+            </div>
+        </aura:if>   
+        <aura:if isTrue="{!v.truthy2}">
+            <div class="slds-m-around_xx-large">
+            <Lightning:card>
+                <c:SignupPage/>
+            </Lightning:card>
+                </div>
+        </aura:if> 
+        
+        <aura:if isTrue="{!v.truthy3}">
+            <div class="slds-m-around_xx-large">
+            <Lightning:card>
+                <c:FoegetPage/>
+            </Lightning:card>
+                </div>
+        </aura:if> 
+        
+        
+        
+        
+    </Lightning:card>
+         </div>
+    
+    
+    
+    
+    
+    
+    
+</aura:component>
