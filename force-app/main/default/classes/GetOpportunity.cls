@@ -7,6 +7,7 @@ public without sharing class GetOpportunity {
           System.debug('Opportuntiy list==> '+opportunityList );
           system.debug('gross changes');
           System.debug('ADD NEW CHANGES ');
+          System.debug('Add third stage');
           return opportunityList;
     }
 }
