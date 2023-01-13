@@ -16,7 +16,7 @@
 
                 
             }else{
-                console.log("nothing to show");
+                console.log("nothing to show again");
             }
         });
         $A.enqueueAction(action);
