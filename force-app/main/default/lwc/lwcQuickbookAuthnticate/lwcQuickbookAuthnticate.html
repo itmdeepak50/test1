@@ -1,0 +1,94 @@
+<template>
+
+<h1>Hello </h1>
+
+<template  if:true = {isfirstpage} >
+
+<lightning-card>
+<div class="slds-p-around_xx-large">
+
+<div style="margin-left: 90%;">
+
+ !!!!!{value1}   
+<lightning-button  label="Authnticate" title="Primary action" onclick={newAccount} class="slds-m-left_x-small"></lightning-button></br>
+<lightning-button  label="New" title="Primary action" onclick={createAccount} class="slds-m-left_x-small"></lightning-button>
+
+</div>
+
+<lightning-combobox
+name="progress"
+label="Object"
+value={value}
+placeholder="Select One"
+options={options}
+onchange={getsObject} ></lightning-combobox>
+
+<p>Selected value is: {value}</p><br>
+<lightning-button variant="brand" label="Insert Data" title="Primary action" onclick={insertData} class="slds-m-left_x-small"></lightning-button>
+
+</div>
+</lightning-card>
+
+</template>
+
+
+
+<!--Use template if:true to display/hide popup based on isModalOpen value--> 
+<template if:true={isModalOpen}>
+<!-- Modal/Popup Box LWC starts here -->
+<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container">
+        <!-- Modal/Popup Box LWC header here -->
+        <header class="slds-modal__header">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                <lightning-icon icon-name="utility:close"
+                    alternative-text="close"
+                    variant="inverse"
+                    size="small" ></lightning-icon>
+                <span class="slds-assistive-text">Close</span>
+            </button>
+
+
+            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Enter your credntial</h2>
+        </header>
+        <!-- Modal/Popup Box LWC body starts here -->
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <!-- client Id  -->
+            <Lightning-input  type='Text' label='Passcode' value={passcode}  onchange={setPasscode}></Lightning-input></br>
+
+        </div>
+        <!-- Modal/Popup Box LWC footer starts here -->
+        <footer class="slds-modal__footer">
+            <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+            <button class="slds-button slds-button_brand"   onclick={submitDetails}   title="OK">OK</button>
+        </footer>
+    </div>
+</section>
+<div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+<!-- model box end here -->
+
+
+<div class="slds-m-horizontal_x-large">
+<div class="slds-p-around_xx-large">
+<lightning-card if:true={isAuthnticatePage}>
+<div class="slds-p-around_x-small">
+<div class="slds-m-horizontal_x-large">
+<lightning-button variant="brand" label="FinalAuthnticate" title="Primary action" onclick={navigateToWebPage} class="slds-m-left_x-small"></lightning-button>
+<!--<Lightning-input  type='Text' label='client Id' value={clientId}  onchange={setClientId}></Lightning-input></br>
+<span style="color: red;">{clientIdError}</span>
+<Lightning-input  type='Text' label='client_Secret' value={clientSecret}  onchange={setclientSecret}></Lightning-input>
+<span style="color: red;">{clientSecretError}</span>-->
+
+</div>
+</div>
+</lightning-card>
+</div>
+</div>
+
+
+<template if:true={parentQuickBook}>
+    <c-parent-quick-book status-from-lwc={value1} ></c-parent-quick-book>
+</template>
+
+</template>

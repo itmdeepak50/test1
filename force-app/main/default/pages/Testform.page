@@ -1,0 +1,90 @@
+<apex:page controller="vfdownloadPdf" renderAs="pdf" >   
+      
+    
+     <apex:outputLabel value="Account Name" />
+     <apex:outputText styleClass="accName" />
+    
+    <apex:form >
+        <div style="border:1px solid; width:200px;">
+	    <div style="height:30px;width:150px;margin-top:20px;margin-left:20px;font-size:15px;color:blue;">
+        DATALOADTESTING
+		</div>
+    <table>
+				<tr>
+				<td>
+					Name
+				</td>
+				<td>
+					<apex:outputText value=" {!acc.name}"/>
+				</td>
+				</tr>
+				<tr>
+				<td>
+					City
+				</td>
+				<td>
+					<apex:outputText value=" {!acc.name}" />
+				</td>
+				</tr>
+				<tr>
+				<td>
+					Country
+				</td>
+				<td>
+					<apex:outputText value=" {!acc.name}" />
+				</td>
+				</tr>
+				<tr>
+				<td>
+					Phone
+				</td>
+				<td>
+					<apex:outputText value=" {!acc.name}"/>
+				</td>
+				</tr>
+				<tr >
+				<td colspan="2" align="center">
+					
+				</td>
+				</tr>
+			</table>
+        </div>
+       
+
+        </apex:form>
+        
+       {!$CurrentPage.parameters.username1}
+   
+    
+    
+ 
+   <script>
+    var value = "{!$CurrentPage.parameters.username1}";
+    console.log('of value are::'+ value);
+    document.getElementsByClassName("accName")[0].innerHTML = value;
+               
+    
+        // Calling Lightning component from vf page
+    /* $Lightning.use("c:Applications", function () {
+            $Lightning.createComponent("c:InsertRecordWithPdfFile", 
+               
+            {PassesValueFromVF:" "},
+             "compContainer",
+                function (cmp) {
+                    console.log("Lightning component rendered successfully!!");
+                    // Event Service hander to handele the lightning component cusom event
+                     $A.eventService.addHandler({ "event": "c:sendDatafromauratovf", "handler": retriveEventData });
+                });
+        });
+
+
+        function retriveEventData(event) {
+            var username = event.getParam("username");
+            console.log("hhi value is herer  "+username  )
+            // passing data to outputtext lables
+            document.getElementsByClassName("accName")[0].innerHTML = username;
+           
+        }*/
+
+    </script>
+</apex:page>

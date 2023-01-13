@@ -1,0 +1,38 @@
+<aura:component controller="Accountdata" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="listOfAccounts" type="Account[]"/> 
+     <aura:attribute name="call" type="boolean" default="false"/> 
+    <aura:attribute name="activeSections" type="List"/> 
+   
+    <aura:attribute name="activeSections1" type="List" default="['A','B']" />
+   
+    <div class="slds-m-around_x-large"> 
+       {!v.activesename.Name} 
+            
+            <lightning:accordion  allowMultipleSectionsOpen="true"  onsectiontoggle="{!c.handleSectionToggle2 }" activeSectionName="{!v.activeSections}" >
+            
+            <aura:iteration items="{!v.listOfAccounts}" var="acc"> 
+           
+                <lightning:accordionSection name="{!acc.Name}" label="{!acc.Name}"> 
+                    <aura:set attribute="body"> 
+                        <p><b>AccountNumber</b> : {!acc.Id} </p> 
+                        <p><b>Description</b> : {!acc.Name}</p> 
+                        <p><b>Phone</b> : {!acc.Phone}</p>
+                         
+                    </aura:set>
+                </lightning:accordionSection> 
+            </aura:iteration>
+        </lightning:accordion> 
+    </div> 
+    <lightning:accordion allowMultipleSectionsOpen="true" activeSectionName="{! v.activeSections1}">    
+     <lightning:accordionSection name="A" label="Section1" >
+          //CODE
+     </lightning:accordionSection>
+     <lightning:accordionSection name="B" label="Section2">
+         //CODE
+     </lightning:accordionSection>
+</lightning:accordion>
+    
+    
+    
+</aura:component>

@@ -1,0 +1,50 @@
+<aura:component controller="GetAllcuntriesName" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:handler name="init" value="{!this}" Action="{!c.doInit}"/> 
+    
+    <aura:attribute name="amount" type="String"/>
+    <aura:attribute name="apikey" type="String"/>
+    <aura:attribute name="apiError" type="String"/>
+    <aura:attribute name="ConvertedValue" type="String"/>
+    <aura:attribute name="code1" type="List"/>
+    <aura:attribute name="code2" type="List"/>
+    <aura:attribute name="option" type="List"/>
+
+    
+    
+    <div class="main">
+
+    <div class="slds-m-around_x-large">
+    
+    <Lightning:card>
+        <h1 style="text-align: center;font-size: 25px;
+}">Currency Converter</h1>
+        <div class="slds-p-around_x-large">
+         <span  style="color:Red"  >{!v.apiError}</span>    
+    <Lightning:input name="Key" type="String"  label="Enter Api key" value="{!v.apikey}"/>        
+    <Lightning:select name="select1" label="country code"  aura:id = "code1">
+        <option value="" >Choose one...</option>
+        <aura:iteration items ="{!v.code1}" var="ac">
+            <option value="{!ac.Id}"  label="{!ac.Name}"></option>
+        </aura:iteration>
+    </Lightning:select>
+    
+    <Lightning:select name="select1" label="Change To "  aura:id = "code2"  >
+        <option value="" >Choose one...</option>
+        <aura:iteration items ="{!v.code2}" var="ac">
+            <option value="{!ac.Id}"  label="{!ac.Name}"></option>
+        </aura:iteration>
+    </Lightning:select>
+    
+    <Lightning:input name="Amount" type="String" required="true" label="Enter Amount" value="{!v.amount}"/>
+    <div style=" padding-top:2%">
+        <Lightning:button variant="brand"  aura:id="button1"  label="Convert" title="next" onclick="{!c.convert}"/>
+    </div>
+    <h1 style="text-align: center;font-size: 25px;
+}">Amount are ::: {!v.ConvertedValue}</h1>
+            </div>
+   </Lightning:card>
+        </div>
+    </div>
+    
+</aura:component>

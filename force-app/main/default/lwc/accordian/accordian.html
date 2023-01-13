@@ -1,0 +1,54 @@
+<template>
+  {accd.conn}
+  <Lightning-input  type='Text' label='Contact' value={passcode} onchange={set}></Lightning-input></br>
+  <button class="slds-button slds-button_brand"   onclick={submitDetails}   title="OK">SEARCH</button>
+
+    <lightning-accordion class="example-accordion" active-section-name={activeSections1}
+                        onsectiontoggle={handleToggleSection}
+                        allow-multiple-sections-open>No of contact : {no_ofcontact}
+        <lightning-accordion-section name="A" label="Contacts">
+          <div style="height: 300px;">
+            <lightning-datatable
+                    key-field="id"
+                    data={data}
+                    columns={columns}
+                    hide-checkbox-column="true"
+                    show-row-number-column="true"
+                    >
+            </lightning-datatable>
+        </div>   
+            
+        </lightning-accordion-section>
+        
+
+    </lightning-accordion> 
+
+    <lightning-accordion class="example-accordion" active-section-name={activeSections2}
+    onsectiontoggle={handleToggleSection2}
+    allow-multiple-sections-open default={opvalue3}>
+   <!-- <lightning-accordion-section name="B" label="Account">--> 
+    <template if:true={accd}>
+   
+    <template for:each={accd} for:item="itr">
+    <lightning-accordion-section  key={itr.id}  name={itr.name} label={itr.name} >
+     
+      <lightning-accordion class="example-accordion" active-section-name={activeSections3}
+      onsectiontoggle={handleToggleSection3}
+      allow-multiple-sections-open>
+
+      <template for:each={itr.conn} for:item="itrr">
+        <lightning-accordion-section  key={itrr.id}  name={itrr.Name} label={itrr.Name}>
+          {itrr.Name}
+          </lightning-accordion-section>
+     </template>
+     
+      </lightning-accordion>
+         
+
+      </lightning-accordion-section>
+
+    </template>
+    </template>
+    <!--</lightning-accordion-section>-->
+  </lightning-accordion>   
+</template>

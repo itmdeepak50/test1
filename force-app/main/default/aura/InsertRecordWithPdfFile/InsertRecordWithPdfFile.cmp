@@ -1,0 +1,30 @@
+<aura:component controller="insertRecordWithPdf" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+      <aura:handler name="init" value="{!this}" Action="{!c.doInit}"/>
+      <aura:attribute name="recordId" type="Id" />
+
+    
+    
+      are genrate your pdf 
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        
+    
+       
+            <Lightning:button variant="brand" label="SendDatatovf" title="Sign in" onclick="{!c.sendData}"/>
+     
+     
+      <!--<aura:attribute name="PassesValueFromVF" type="string"/>
+          
+      <aura:attribute name="username" type="String"/>
+      <Lightning:input name="username" type="String" label="User Name" value="{!v.username}"/>
+      <Lightning:button variant="brand" label="SendDatatovf" title="Sign in" onclick="{!c.sendData}"/>-->
+
+
+</aura:component>

@@ -1,0 +1,21 @@
+<aura:component controller="ControllerForBlueLeafDetailPageVf" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global" >
+   
+    <!-- <aura:attribute Name="RecordId" type="Id" ></aura:attribute> -->
+    <aura:attribute name="recordId" type="String" />
+    <!--<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>-->
+        <div class="slds-p-around_small" style="font-size:200%">
+            Are you sure you want to create Record?  <br/><br/>
+        </div>
+       <footer class="slds-modal__footer" style="margin-top:10%; width:103%"> 
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col" style="margin-left:75%">
+                <lightning:button variant="brand" label="Yes" title="Yes" onclick="{! c.YesButtonCalled }" />
+            </div>
+            <div>
+                <lightning:button variant="Destructive" label="No" title="No" onclick="{! c.NoButtonCalled }" />
+
+            </div>
+        </div>
+        </footer>
+    
+</aura:component>

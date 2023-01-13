@@ -1,0 +1,67 @@
+<apex:page standardController="Contact" recordSetVar="conrtacts" >
+    <apex:includeLightning />
+    
+    <apex:includeScript value="/sforce/one/49.0/api.js"></apex:includeScript>
+    <apex:includeScript value="/soap/ajax/49.0/connection.js"></apex:includeScript>
+    <apex:includeScript value="/soap/ajax/49.0/apex.js"></apex:includeScript>
+    <apex:form >
+    
+        </apex:form>
+    <div id="component" />  
+  
+     
+    <script>
+    window.onload = function(){
+    console.log('hello Moto')    
+    subscribeMC();
+    }
+    var me;
+    
+     var SAMPLEMC = "{!$MessageChannel.SampleMessageChannel__c}";
+        var subscriptionToMC;
+        // Display message in the textarea field
+        function onMCPublished(message) {
+           
+            me  = message ? JSON.stringify(message, null, '\t') : 'no message payload';
+           console.log('hiii value are from lwc ',this.me); 
+        }
+
+        function subscribeMC() {
+            if (!subscriptionToMC) {
+                console.log('hello Moto in subscribe')    
+                subscriptionToMC = sforce.one.subscribe(SAMPLEMC, onMCPublished,{scope: "APPLICATION"});  
+            }
+        }
+
+        function unsubscribeMC() {
+            if (subscriptionToMC) {
+                sforce.one.unsubscribe(subscriptionToMC);
+                subscriptionToMC = null;
+            }
+        }
+    
+    
+    
+    $Lightning.use("c:Applications", function() {
+            $Lightning.createComponent("c:exploreaccountlookup",
+            { 
+            },
+            "component", // the Id of div tag where your component will be rendered
+            function(cmp) {
+                
+                console.log('Calling the LWC Component');
+            });
+        });
+    
+     function showToast() {
+            sforce.one.showToast({
+                "title": "Success!",
+                "message": "Welcome to salesforce code crack.",
+                "type": "success"
+            });
+        }
+    
+    </script>  
+       
+    
+</apex:page>

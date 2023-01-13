@@ -1,0 +1,162 @@
+<aura:component  controller="forGetPassword"    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" Action="{!c.doInit}"/>
+    
+    <aura:attribute name= "truthy1" Type="Boolean" default="false"/>
+    <aura:attribute name= "truthy2" Type="Boolean" default="false"/>
+    <aura:attribute name="truthy3" Type="Boolean" default="false"/>
+    <aura:attribute name="truthy4" Type="Boolean" default="false"/>
+    <aura:attribute name="truthy5" Type="Boolean" default="false"/>
+    <aura:attribute name="Data" type="Boolean" default="true"/>
+
+    
+    
+    <aura:attribute name="question" type="List" default="[
+                                                         {'label': 'Home town name', 'value': 'Home town name'},
+                                                         {'label': 'Pet Name', 'value': 'Pet Name'},
+                                                         {'label': 'First School Name', 'value': 'First School Name'},
+                                                         ]"/>
+    <aura:attribute name= "username" Type="String" />
+    <aura:attribute name= "scanswer" Type="String" />
+     <aura:attribute name= "usernameError" Type="String"/>
+     <aura:attribute name= "scquestionError" Type="String"/>
+      <aura:attribute name= "ScanswerError" Type="String"/>
+    
+    
+    
+    
+    <!--second truthy attribute-->
+    <aura:attribute name= "id" Type="String" />
+    <aura:attribute name= "newPassword" Type="String" />
+    <aura:attribute name= "confpassword" Type="String" />
+    <aura:attribute name= "pass1Error" Type="String" />
+    <aura:attribute name= "pass2Error" Type="String" />
+    <aura:attribute name= "matchError" Type="String" />
+    
+    <!-- 4th truthy attributes-->
+    <aura:attribute name= "email" Type="String" />
+     <aura:attribute name= "emailError" Type="String" />
+    
+    
+    
+    <!-- 5 truthy attributes-->
+    
+    <aura:attribute name= "otp" Type="String" />
+    <aura:attribute name= "timeLeft" Type="String" />
+     <aura:attribute name= "otpError" Type="String" />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class = "forgetparentcard" >
+        <Lightning:card>
+            <aura:if isTrue="{!v.truthy1}"> 
+                
+                
+                <Lightning:card>
+                    
+                    <div class="slds-align_absolute-center" style="height:5rem">   
+                        <h1><p  style="font-size: xxx-large;" >Forget Page</p></h1> 
+                    </div>
+                    <Lightning:input name="username" type="String"  required="true" label="User Name" value="{!v.username}"/> 
+                     <span  style="color:Red">{!v.usernameError}</span>
+                    
+                    <lightning:combobox name="SecuirtyQuestion" label="Secuirty Question"  aura:id="scquestion" required="true" value="Scquestion__c" placeholder="Select Progress" options="{!v.question }"  />
+                     <span  style="color:Red"   >{!v.scquestionError}</span>
+                    <Lightning:input name="Scanswer" type="String" required="true" label="Answer" value="{!v.scanswer}"/>
+                    <span  style="color:Red"   >{!v.ScanswerError}</span>
+                    
+                    <div class="slds-align_absolute-center" style="height:5rem">
+                        <div class="slds-m-top_medium">
+                            <Lightning:button variant="brand" label="Reset Password" title="Sign in" onclick="{!c.Reset}"/>
+                            <Lightning:button variant="brand" label="Try Another Way" title="Sign in" onclick="{!c.anotherWay}"/>
+                            
+                        </div>
+                    </div>
+                    
+                    
+                    
+                </Lightning:card>
+                
+                
+                
+            </aura:if> 
+            <aura:if isTrue="{!v.truthy2}">
+                
+                <Lightning:card>
+                    <div class="slds-align_absolute-center" style="height:5rem">   
+                        <h1><p style="font-size: xx-large;">Reset Page</p></h1> 
+                    </div>
+                    <Lightning:input name="username" type="String" label="your register ID" disabled="true" value="{!v.id}"/> 
+                    <Lightning:input name="username" type="String" label="New Password" value="{!v.newPassword}"/> 
+                    <span style="color:Red"  >{!v.pass1Error}</span>
+                    <Lightning:input name="username" type="String" label="Conform Password" value="{!v.confpassword}"/>
+                    <span style="color:Red"  >{!v.matchError}</span>
+                    <div class="slds-m-top_medium">
+                        <Lightning:button variant="brand" label="Reset Password" title="Sign in" onclick="{!c.ResetPassword}"/>
+                    </div>    
+                </Lightning:card> 
+                
+            </aura:if> 
+            
+            <aura:if isTrue="{!v.truthy3}">
+                
+                <Lightning:card>
+                    <c:UserSign/>
+                </Lightning:card>
+            </aura:if> 
+            
+            <aura:if isTrue="{!v.truthy4}">
+                
+                <Lightning:card>
+                    <div class="slds-align_absolute-center" style="height:5rem">   
+                        <h1><p style="font-size: xx-large;">Send OTP</p></h1> 
+                    </div>
+                    <Lightning:input name="Email" type="String" label="Email Address"  required="true" value="{!v.email}"/> 
+                    <span style="color:Red"  >{!v.emailError}</span>
+                   
+                  <!--  <span style="color:Red"  >{!v.emailError}</span>-->
+                    
+                    <div class="slds-m-top_medium">
+                        <Lightning:button variant="brand" label="SendMail" title="Sign in" onclick="{!c.sendMail}"/>
+                    </div>    
+                </Lightning:card>
+            </aura:if> 
+            
+            
+            <aura:if isTrue="{!v.truthy5}">
+                
+                <Lightning:card>
+                    <div class="slds-align_absolute-center" style="height:5rem">   
+                        <h1><p style="font-size: xx-large;">Enter Varificatin Code here</p></h1> 
+                    </div>
+                    <Lightning:input name="Otp" type="String" label="ENTER OTP HERE" required="true"  value="{!v.otp}"/> 
+                     <span style="color:Red"  >{!v.otpError}</span>
+                 
+                    
+                    <!--<span style="color:Red"  >{!v.emailError}</span>-->
+                    
+                    <div class="slds-m-top_medium">
+                        <Lightning:button variant="brand" aura:id="stop" label="Conform" title="Sign in" onclick="{!c.chkeOtp}"/>
+                        
+                    </div>  
+                    
+                   Timer   {!v.timeLeft}
+                </Lightning:card>
+            </aura:if> 
+            
+            
+            
+            
+            
+            
+            
+        </Lightning:card> 
+    </div>
+    
+    
+</aura:component>

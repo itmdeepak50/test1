@@ -1,0 +1,21 @@
+<aura:component controller="aura9AccountData" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" Action="{!c.doInit}"/> 
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="sortedBy" type="String" default="Name"/>
+    <aura:attribute name="sortedDirection" type="string" default="asc" />
+   <div class="slds-m-around_large">
+    <div class="slds-m-horizontal_x-large">
+    <Lightning:card>
+        <div class="slds-p-around_large">
+    <lightning:datatable keyField="id" 
+                         data="{!v.data}" 
+                         columns="{!v.columns}"
+                         hideCheckboxColumn="true" 
+                         onsort="{!c.updateSorting}"
+                         sortedBy="{!v.sortedBy}"
+                         sortedDirection="{!v.sortedDirection}" 
+                         
+                         /></div></Lightning:card></div></div>
+    
+</aura:component>

@@ -1,0 +1,37 @@
+<aura:component controller="Accountdata"    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" Action="{!c.doInit}"/>   
+    <aura:attribute name="accountList" type="List"/>
+    <aura:attribute name="conList" type="List"/>
+    <aura:attribute name="oppList" type="List"/>
+    
+    <aura:attribute name= "truthy" Type="Boolean" default="false"/>
+    
+    <Lightning:select name="select1" label=" List f Account"  aura:id = "acid"  onchange="{!c.getConAndOppRelatedAcc}">
+        <option value="" >Choose one...</option>
+        <aura:iteration items ="{!v.accountList}" var="ac">
+            <option value="{!ac.Id}"  label="{!ac.Name}"></option>
+        </aura:iteration>
+    </Lightning:select>
+    
+    <aura:if isTrue="{!v.truthy}">
+        <Lightning:select name="select1" label=" List of Contact" >
+            <option value="" >Choose one...</option>
+            <aura:iteration items ="{!v.conList}" var="con">
+                <option value="{!con.accountid}"  label="{!con.LastName}"></option>
+            </aura:iteration>
+        </Lightning:select>
+        
+        <Lightning:select name="select1" label=" List of Opportunity" >
+            <option value="" >Choose one...</option>
+            <aura:iteration items ="{!v.oppList}" var="op">
+                <option value="{!op.accountid}"  label="{!op.Name}"></option>
+            </aura:iteration>
+        </Lightning:select>
+        
+    </aura:if> 
+    
+    
+   
+    
+    
+</aura:component>
