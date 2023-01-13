@@ -17,7 +17,7 @@
 
                 
             }else{
-                console.log("nothing to show");
+                console.log("nothing to sho");
             }
         });
         $A.enqueueAction(action);
