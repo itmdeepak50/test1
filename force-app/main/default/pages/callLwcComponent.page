@@ -5,7 +5,11 @@
     <apex:includeScript value="/soap/ajax/49.0/connection.js"></apex:includeScript>
     <apex:includeScript value="/soap/ajax/49.0/apex.js"></apex:includeScript>
     <apex:form >
+<<<<<<< HEAD
     
+=======
+    <apex:commandButton onclick="showToast();" value="toast" />
+>>>>>>> testing_branch
         </apex:form>
     <div id="component" />  
   
