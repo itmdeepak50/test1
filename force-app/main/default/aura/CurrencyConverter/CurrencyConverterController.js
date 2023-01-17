@@ -1,5 +1,4 @@
 ({
-   
 	doInit : function(component, event, helper) {
 		
         var action = component.get("c.getCountriesCode");
@@ -17,7 +16,7 @@
 
                 
             }else{
-                console.log("nothing to sho");
+                console.log("nothing to show again");
             }
         });
         $A.enqueueAction(action);
@@ -25,7 +24,7 @@
 	},
     
     convert:function(component, event, helper){
-        /*var action=component.get("c.getCuntriesName");
+        var action=component.get("c.getCuntriesName");
         console.log(component.find("code1").get("v.value"));
         console.log(component.find("code2").get("v.value"));
         console.log(component.get("v.amount"));
@@ -50,54 +49,13 @@
                 
                 component.set("v.apiError","Your Api key is Expeierd please enter Updated Key below Section");
                 console.log("i am in the else block");
-            }
+            } 
             
             
         });
         
-   $A.enqueueAction(action); */       
+   $A.enqueueAction(action);        
         
-
-
-       var option =[];
-       option = component.get("v.option");
-       var code1 =component.find("code1").get("v.value");
-       var code2 = component.find("code2").get("v.value");
-       let flag = 0;
-
-       for(let i=0;i<option.length;i++){
-        if(code1==option[i]['TAG1']&&code2!=option[i]['TAG2']){
-
-           option.splice(i,1);
-           console.log('if');
-           flag =1;           
-           break;
-
-        }
-        else if(code1==option[i]['TAG1']&&code2==option[i]['TAG2']){
-            console.log('else');
-            flag = 1;
-            break;
-        }
-
-       }
-
-       if(flag == 0){
-        option.push({TAG1:code1, TAG2:code2});
-       }
-       
-       component.set("v.option",option);
-       
-       
-
-      
-
-
-       console.log('option value is', component.get("v.option"));
-
-
-
-
     }
     
 })

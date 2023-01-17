@@ -8,8 +8,6 @@
     <aura:attribute name="ConvertedValue" type="String"/>
     <aura:attribute name="code1" type="List"/>
     <aura:attribute name="code2" type="List"/>
-    <aura:attribute name="option" type="List"/>
-
     
     
     <div class="main">
