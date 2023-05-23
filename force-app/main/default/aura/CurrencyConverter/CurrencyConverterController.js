@@ -16,7 +16,7 @@
 
                 
             }else{
-                console.log("nothing to show again");
+                console.log("nothing to show again please check this recent update");
             }
         });
         $A.enqueueAction(action);
