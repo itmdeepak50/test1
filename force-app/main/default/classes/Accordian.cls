@@ -31,7 +31,7 @@ public  with sharing class Accordian {
             userdata.name = a.name;
                         
             for(Account b : accList){
-                WrapperOfRecords.accountData accdata =new WrapperOfRecords.accountData();
+                WrapperOfRecords.accountData accdlata =new WrapperOfRecords.accountData();
                 accdata.name = b.Name;
                 accdata.ids=b.id;
                 List<contact> cv = new List<contact>(b.contacts);
