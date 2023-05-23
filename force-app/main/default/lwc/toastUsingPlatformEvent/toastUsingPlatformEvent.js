@@ -20,7 +20,7 @@ export default class ToastUsingPlatformEvent extends LightningElement {
         // Callback invoked whenever a new event message is received
         const thisReference = this;
         const messageCallback = function(response) {
-            console.log('New message received 1: ', JSON.stringify(response));
+                        console.log('New message received 1: ', JSON.stringify(response));
             console.log('New message received 2: ', response);
             
             var obj = JSON.parse(JSON.stringify(response));
@@ -41,6 +41,7 @@ export default class ToastUsingPlatformEvent extends LightningElement {
             // Response contains the subscription information on subscribe call
             console.log('Subscription request sent to: ', JSON.stringify(response.channel));
             this.subscription = response;
+            
         });
     }
 
