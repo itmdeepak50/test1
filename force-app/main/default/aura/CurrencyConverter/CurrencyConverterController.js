@@ -16,7 +16,7 @@
 
                 
             }else{
-                console.log("nothing to show again");
+                console.log("nothing to show again please check this recent update");
             }
         });
         $A.enqueueAction(action);
@@ -48,7 +48,7 @@
             }else{
                 
                 component.set("v.apiError","Your Api key is Expeierd please enter Updated Key below Section");
-                console.log("i am in the else block");
+                console.log("chnages for check it's sync with the Azure repo");
             } 
             
             
