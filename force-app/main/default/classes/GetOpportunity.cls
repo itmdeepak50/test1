@@ -10,5 +10,7 @@ public without sharing class GetOpportunity {
           System.debug('ADD FOR NEW CHECK');
           return opportunityList;
     }
+
+
 }
  
