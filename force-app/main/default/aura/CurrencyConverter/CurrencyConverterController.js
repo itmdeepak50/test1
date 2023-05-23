@@ -12,7 +12,7 @@
                 }
                 console.log('value here',value);
                 component.set("v.code1",value);
-                component.set("v.code2",value add);
+                component.set("v.code2",value);
 
                 
             }else{
