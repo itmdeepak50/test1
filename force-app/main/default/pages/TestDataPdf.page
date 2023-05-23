@@ -1,0 +1,17 @@
+<apex:page renderAs="pdf">
+    
+    <table>
+  <tr>
+      <td style ="width:50%; padding :5%;">
+      Je suis née à Bruxelles de parents qui ont immigré de Tunisie vers la Belgique en 1985. Ils ont tous les deux laissé leur vie derrière eux,
+      rêvant d'un avenir meilleur en Europe. Je ne peux commencer à écrire sur moi qu'en braquant les projecteurs sur les deux personnes qui ont fait de moi la personne que je suis aujourd'hui et qui ont sacrifié leur bien-être pour que ma sœur et moi puissions nous épanouir.
+      D'aussi loin que je me souvienne, mes parents ont toujours exigé l'excellence académique. 
+      Tous deux ouvriers, ils rêvaient que j'aille à l'université pour avoir une "meilleure vie qu'eux". Ceci peut-être car aucun d'eux n'a eu la chance de fréquenter l'université et qu'ils voyaient en l'éducation de leurs filles la seule manière d'échapper à leur lot et à celui de nombreux immigrés, contraints aux petits boulots mal payés et souvent considérés comme dégradants.
+      J'ai vécu une enfance paisible et heureuse, au sein d'une famille modeste qui m'a toujours encouragée à poursuivre mes rêves et à être assidue à l'école. Petite, j'adorais la lecture et m'enfermais souvent dans ma chambre pour dévorer ces bouquins qui me faisaient voyager tout en me permettant de rester sous la protection de ma couverture. Mon engagement sociétal ne s'est développé que plus tard, lorsque j'ai pris conscience de mon manque accru de capital culturel et du fait que les personnes "comme moi", venant de mon milieu économique et social, n'avaient pas des chances égales de réussite.
+
+      </td>
+  </tr>
+    </table>
+    
+    
+</apex:page>

@@ -2,7 +2,7 @@
     
     <!-- <c:ShowAllObjectAndRelatedField/>-->
     <!--<c:UserSign/>-->
-    <c:AccountPractice/>
+    <!--<c:AccountPractice/>-->
     <!--<c:AccountRelatedOppAndCon/>-->
     <!--<c:UpdateOppcClosedate/>-->
     <!--<c:CreateConLookAcc/>-->
@@ -15,6 +15,7 @@
     <!--<c:InsertRecordWithPdfFile/>-->
     <!--<c:getAccessTokenofMailchimp/>-->
     <!--<c:AccordiansetionEx/>-->
+    <c:IframeComponent/>
     
     
     <!-- @@@@@   LWC Components  @@@@@    -->

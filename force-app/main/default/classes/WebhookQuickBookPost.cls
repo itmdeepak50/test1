@@ -1,17 +1,14 @@
 @RestResource(urlMapping='/api/v1')
 global without sharing class WebhookQuickBookPost {
  	@Httpget
-    global static String handleRequest(){
+    global static void handleRequest(){
         String a=null;
         String b='hii, this is deepak soni';
         RestResponse response = RestContext.response;
         try{
             RestRequest request = RestContext.request;
             a= request.requestBody.toString();
-            Name aa=new Name();
-            aa.name='Deepak';
-            String body=Json.serialize(aa);
-            Blob bb= Blob.valueof(body);
+           
             //response.responseBody=bb;
             //response.statusCode=200;
             
@@ -21,7 +18,6 @@ global without sharing class WebhookQuickBookPost {
         }catch(Exception e){
             System.debug('Excepetion Happend::'+e.getMessage());
         }
-       return 'Deepak';
     }
     
     

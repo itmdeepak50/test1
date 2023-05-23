@@ -1,0 +1,22 @@
+.bot {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #f8efef;
+    padding: 11px;
+    display: table;
+    border-radius: 5px;
+    background-color: #0e0c0c;
+    margin-bottom: 10px;
+}
+
+.you {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #131212;
+    padding: 11px;
+    display: table;
+    border-radius: 5px;
+    background-color: #eee4e4;
+    margin-left : 88%;
+    margin-bottom: 10px;
+}

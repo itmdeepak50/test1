@@ -1,0 +1,21 @@
+<template>
+    <template if:true={isShowModal}>
+<div style="height: 50%;" title="Import Household Link Accounts">
+            <lightning-progress-bar title="Import Household Link Accounts" value={changeBarWidth}  ></lightning-progress-bar>
+          <br/>
+          <div class="slds-grid slds-gutters">
+            <div class="slds-col" >
+            <lightning-icon if:true={iconHidden} icon-name="utility:success" alternative-text="Success!" variant="success"
+            title="success variant"></lightning-icon>
+          </div>
+          <div class=" slds-col slds-text-align--center slds-text-title" style="color:forestgreen; font-size:200%; margin-right:25%">
+            {Message}
+        </div>
+      </div><br/><br/>
+
+        <div style="margin-left: 70%;">
+            <lightning-button  variant={ImportButtonVariant} label="import Households" title="import Households" onclick={CallingApexClass}></lightning-button>
+      </div>
+</div>
+</template>
+</template>

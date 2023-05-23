@@ -5,7 +5,7 @@
     <apex:includeScript value="/soap/ajax/49.0/connection.js"></apex:includeScript>
     <apex:includeScript value="/soap/ajax/49.0/apex.js"></apex:includeScript>
     <apex:form >
-    <apex:commandButton onclick="showToast();" value="toast" />
+    
         </apex:form>
     <div id="component" />  
   

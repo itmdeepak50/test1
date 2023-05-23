@@ -1,0 +1,4 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:appHostable" access="global"> 
+    <iframe src="https://cloudanalogy208-dev-ed.my.salesforce-sites.com
+" width="100%" height="1000px;" frameBorder="0"/>
+</aura:component>
