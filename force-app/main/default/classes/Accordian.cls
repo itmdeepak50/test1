@@ -6,7 +6,11 @@ public  with sharing class Accordian {
         set<id> userids =new set<id>();
       
         
+<<<<<<< HEAD
+        System.debug(sr);
+=======
         System.debug('Message plush+');
+>>>>>>> testing_branch
         List<Contact> conList =[select name,phone,email,Account.name,AccountId from contact where name Like:sr and accountid!=null];
         System.debug(conList.size());
         for(contact ab : conList){

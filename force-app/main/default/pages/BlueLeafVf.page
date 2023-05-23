@@ -1,0 +1,17 @@
+<apex:page standardController="Household__c" recordSetVar="Household__c">
+    
+     <apex:includeLightning />    
+    <div id="LightningComponentid" />    
+    <script>
+    console.log('BlueleafvfCalled');
+    $Lightning.use("c:TestingBlueleaf", function() {
+        $Lightning.createComponent("c:blueleafVfLwc",
+          { 
+          },
+          "LightningComponentid",
+          function(cmp) {
+             console.log('LWC Componenet added in VF page');
+          });
+    });
+    </script>
+</apex:page>

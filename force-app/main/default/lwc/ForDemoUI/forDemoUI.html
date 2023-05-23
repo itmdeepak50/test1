@@ -1,0 +1,15 @@
+<template>
+<lightning-card>
+<div>
+    <div class="slds-align_absolute-center" >
+       <lightning-input label="Username" name="Username" type="text" onchange={handleClick1}></lightning-input><br/>
+   </div>
+    <div class="slds-align_absolute-center" >
+       <lightning-input label="Password" name="Password" type="password" onchange={handleClick2}></lightning-input>
+    </div><br/><br/>
+    <div class="slds-align_absolute-center">
+        <lightning-button label="Authenticate" variant={buttonVariant} onclick={handleClick3}></lightning-button>
+    </div>
+</div>
+</lightning-card>
+</template>

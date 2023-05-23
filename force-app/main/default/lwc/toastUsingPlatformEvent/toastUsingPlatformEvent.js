@@ -64,6 +64,6 @@ export default class ToastUsingPlatformEvent extends LightningElement {
             // Error contains the server-side error
         });
     }
+
 }
-   
 

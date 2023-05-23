@@ -17,8 +17,3 @@ export default class UserDataVisible extends LightningElement {
 
 
     }
-
-
-
-
-}
