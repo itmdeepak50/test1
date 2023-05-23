@@ -5,12 +5,10 @@ public without sharing class GetOpportunity {
 
           List<opportunity> opportunityList  = [select name,stagename, Owner.Name from opportunity order by owner.Name ];
           System.debug('Opportuntiy list==> '+opportunityList );
-<<<<<<< HEAD
           return opportunityList;
 
     }
 }
-=======
           system.debug('gross changes');
           System.debug('ADD NEW CHANGES ');
           System.debug('Add third stage');
@@ -18,4 +16,3 @@ public without sharing class GetOpportunity {
     }
 }
  
->>>>>>> testing_branch
