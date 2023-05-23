@@ -1,17 +1,13 @@
 public without sharing class GetOpportunity {
     
     @AuraEnabled
-    public Static boolean GetOpportunity() {
+    public Static List<opportunity>GetOpportunity() {
 
-          /*List<opportunity> opportunityList  = [select name,stagename, Owner.Name from opportunity order by owner.Name ];
+          List<opportunity> opportunityList  = [select name,stagename, Owner.Name from opportunity order by owner.Name ];
           System.debug('Opportuntiy list==> '+opportunityList );
-          return opportunityList;*/
-
-         contact a = new contact();
-         a.lastname ='testcontact';
-         insert a;
-
-         return true;
-
+          system.debug('gross changes');
+          System.debug('ADD NEW CHANGES ');
+          System.debug('ADD FOR NEW CHECK');
+          return opportunityList;
     }
 }
