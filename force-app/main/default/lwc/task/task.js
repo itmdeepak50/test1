@@ -108,7 +108,7 @@ exid:this.Exid
       console.log('ALL RIGHT');
       this.showToast();
   }else{
-      console.log('SOMeTHING WENT WRON')
+      console.log('SOMeTHING WENT WRONG')
   }
 
 })
