@@ -2,13 +2,11 @@
 
 name: CI
 
-# Controls when the workflow will run
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
-    branches: [ "master" ]
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    branches: [ staging ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,15 +17,22 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    # Runs a single command using the runners shell
+    - name: 'Build and Deploy'
+      run: |
+        wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+        mkdir sfdx-cli
+        tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
+        ./sfdx-cli/install
+ # Runs a set of commands using the runners shell
+    - name: 'Authorize'
+      run: |
+        echo username value ${{ secrets.USER_NAME}}
+        sfdx force:auth:jwt:grant --clientid=${{ secrets.CONSUMER_KEY }} --username=${{ secrets.USER_NAME }} --jwtkeyfile server.key --setdefaultdevhubusername --setalias=hub-org
+    - name: 'Convert Metadata'
+      run: sfdx force:source:convert --rootdir=force-app --outputdir=convert
+    - name: 'Run Test on Metadata'
+      run: sfdx force:mdapi:deploy --deploydir=convert --testlevel=RunLocalTests --checkonly -u hub-org    
