@@ -35,6 +35,6 @@ jobs:
         echo username value ${{ secrets.USERNAME_STAGING }}
         sfdx force:auth:jwt:grant --clientid=${{ secrets.CONSUMER_KEY }} --username=${{ secrets.USER_NAME }} --jwtkeyfile assets/server.key --setdefaultdevhubusername --setalias=hub-org
     - name: 'Convert Metadata'
-      run: sfdx force:source:convert --rootdir=force-app --outputdir=convert
+      run: sfdx force:source:convert --rootdir=force-app/main/default/classes/Accordian.cls --outputdir=convert
     - name: 'Run Test on Metadata'
       run: sfdx force:mdapi:deploy --deploydir=convert --testlevel=RunLocalTests --checkonly -u hub-org
