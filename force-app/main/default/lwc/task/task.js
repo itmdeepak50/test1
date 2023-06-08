@@ -113,7 +113,7 @@ exid:this.Exid
 
 })
   }else{
-    alert('!!Please select Last Name and Account Nam')
+    alert('!!Please select Last Name and Account Name')
 
   }
 }
