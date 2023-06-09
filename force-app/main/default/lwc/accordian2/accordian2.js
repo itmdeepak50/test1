@@ -69,7 +69,7 @@ connectedCallback(){
          opvalue4=sessionStorage.getItem('acc3').split(',');
 
      }
-     console.log('local storage value are ', value1 )
+     console.log('local storage value ar ', value1 )
      this.passcode=value1
      this.name=value1
      console.log('value are ',this.name)
